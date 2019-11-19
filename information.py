@@ -89,6 +89,19 @@ corax_field_dic['EPS General Marker Description'] = 'CHAR(70)'
 corax_field_dic['EPS Net/Gross Marker'] = 'BIGINT(15)'
 corax_field_dic['EPS Net/Gross Marker Description'] = 'CHAR(70)'
 corax_field_dic['Earnings Announcement Date'] = 'DATE'
+corax_field_dic['RIC Root'] = 'CHAR(40)'
+corax_field_dic['Underlying RIC'] = 'CHAR(20)'
+corax_field_dic['Universal Ask Price'] = 'DECIMAL(36,12)'
+corax_field_dic['Settlement Price'] = 'DECIMAL(36,12)'
+corax_field_dic['Lot Size'] = 'DECIMAL(36,12)'
+corax_field_dic['Universal Bid Price'] = 'DECIMAL(36,12)'
+corax_field_dic['Lot Units'] = 'CHAR(8)'
+corax_field_dic['Volume'] = 'DECIMAL(47,18)'
+corax_field_dic['Block Volume'] = 'DECIMAL(47,18)'
+corax_field_dic['Number of Price Moves'] = 'DECIMAL(47,18)'
+corax_field_dic['Implied Volatility'] = 'DECIMAL(34,11)'
+corax_field_dic['Last Trading Day'] = 'DATE'
+corax_field_dic['Expiration Date'] = 'DATE'
 
 corax_fields = corax_field_dic.keys()
 
@@ -101,4 +114,3 @@ DECIMAL_TYPES = ['DECIMAL(18,9)', 'DECIMAL(12,6)', 'DECIMAL(39,14)']
 
 
 corax_map={}
-corax_map['']

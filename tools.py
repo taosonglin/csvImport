@@ -74,22 +74,24 @@ def handle_line(line, fields):
     """
     modify line's value by marked_index of field_list
     """
-    num = len(fields)
-    for index in range(num):
-        type = corax_field_dic[fields[index]]
-        if type == 'DATE':
-            line[index] = transform_date(line[index])
-            continue
-        if type in INT_TYPES:
-            line[index] = transform_int(line[index])
-            continue
-        if type in DECIMAL_TYPES:
-            line[index] = transform_decimal(line[index])
-            continue
-        if line[index] == None:
-            continue
-        if line[index] == '':
-            line[index] = None
+    try:
+        num = len(fields)
+        for index in range(num):
+            type = corax_field_dic[fields[index]]
+            if  'DATE'==type:
+                line[index] = transform_date(line[index])
+                continue
+            if 'INT'in type:
+                line[index] = transform_int(line[index])
+                continue
+            if 'DECIMAL' in type:
+                line[index] = transform_decimal(line[index])
+                continue
+            line[index]=None
+
+    except Exception:
+        print (line)
+        exit(1)
 
     return line
 
@@ -99,10 +101,9 @@ def make_insert_sql(fields, csvfile, start_pk_value=0):
      return insert sql sentence of the table create by input csvfile
     """
     sqls = []
-    f = open(csvfile, 'r')
-    lines = csv.reader(f)
+    f = open(csvfile, "r", errors='ignore' )
+    lines = csv.reader(line.replace('\0','')for line in f)
     pk = start_pk_value
-
     for line in lines:
         if line[0] == fields[0]:
             continue
