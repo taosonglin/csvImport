@@ -87,12 +87,12 @@ def handle_line(line, fields):
             if 'DECIMAL' in type:
                 line[index] = transform_decimal(line[index])
                 continue
-            line[index]=None
+            if line[index]=='':
+                line[index]=None
 
     except Exception:
         print (line)
         exit(1)
-
     return line
 
 
